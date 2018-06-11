@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.java.file.service.FileServiceInterface;
-import com.java.util.HttpUtil;
+import com.java.utill.HttpUtil;
 
 
 @Controller

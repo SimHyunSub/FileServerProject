@@ -29,7 +29,7 @@ public class FileService implements FileServiceInterface {
 //				String path = "D:/GDJ10/IDE/workspace/FileServer/src/main/webapp/resources/" + dir + "/";
 				String path = "/var/www/html/resources/" + dir + "/";
 //				String path = req.getSession().getServletContext().getRealPath("/") + "resources/" + dir + "/";
-				String dns = "http://WebServer/";
+				String dns = "http://fileserver/";
 				
 				File dirF = new File(path);
 				

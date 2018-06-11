@@ -5,14 +5,14 @@
 	<title>파일 올리기</title>
 	<script type="text/javascript" src="/test/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 	
-	<script>
+<!-- 	<script>
 	$(document).ready(function(){
 		$("form").submit(function(event){
 			event.preventDefault();
 			
 			$.ajax({
 				type:"post",
-				url:"/WebServer/resources/temp",
+				url:"/test/file/temp",
 // 				url:"http://192.168.1.6:8080/FileServer/file/SHS",
 				data:new FormData($(this)[0]), //javascript 내장객체 FormData는 form에서 넘겨준 데이타를 뜻한다. 결론은 하나이기때문에 this[0]면 하나 말하는것. 
 				cache:false,
@@ -30,11 +30,11 @@
 				}
 			});
 		});
-	});
+	}); -->
 </script>
 </head>
 <body>
-	<form enctype="multipart/form-data"> <!-- fileupload 할때 설정 2개 필수  -->
+	<form action="http://fileserver:9090/" enctype="multipart/form-data"> <!-- fileupload 할때 설정 2개 필수  -->
 		<input type="file" name="file" id="file" multiple="multiple"><br>
 		<input type="submit" value="파일업로드">
 	</form>
