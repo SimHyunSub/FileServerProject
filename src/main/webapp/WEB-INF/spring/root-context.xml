@@ -8,4 +8,25 @@
 		<property name="maxUploadSize" value="10485760" />
 		<property name="maxInMemorySize" value="104857600" />
 	</bean>
+	
+	
+	<!-- Datasource 생성 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="url" value="jdbc:mysql://192.168.1.8:3306/test"/>
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+		<property name="username" value="root"/>
+		<property name="password" value="1234"/> 		<!-- db연결 -->
+	</bean>
+	
+	<!-- SqlSessionFactory 생성 -->
+	<bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">  <!-- Sqlconnection이 생성된다. 이것이 생성되면 DB가 연결이된다. -->
+		<property name="mapperLocations" value="classpath:/sql/*.xml"/>
+		<property name="dataSource" ref="dataSource"/> <!-- ref : 참조  -->		<!-- mybatis 셋팅 -->
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"> <!-- sqlsessionfactory라는 sql창고가 생기는데 거기서 하나씩 빼서 쓰겠다 ! -->
+		<constructor-arg name="sqlSessionFactory" ref="factoryBean"/>	<!-- 얘를 쓰기위해 위의 두개가 필요하다 참조(ref) datasource -> 참조 factorybean 한것이 session -->
+																		<!-- session이 동작될때 트렌젝션이 왔다갔다 한다. DAO가 세션을 동작시키는데 세션을 동작시키는 행위가 곧 트렌젝션이다.-->
+	</bean>
+	
 </beans>

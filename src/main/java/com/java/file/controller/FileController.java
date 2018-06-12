@@ -22,7 +22,7 @@ public class FileController {
 	
 	@RequestMapping("/")
 	public String main() {
-		return "main";
+		return "main.jsp";
 	}
 
 	@RequestMapping("/FileUpload/{dir}")
